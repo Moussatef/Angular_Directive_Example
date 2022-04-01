@@ -1,0 +1,160 @@
+<div class="container">
+
+
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Animals years old between One and Ten
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+
+                    <div class="row  justify-content-between">
+                        <div *ngFor="let animal of animals"
+                            [ngClass]="[animal.old >= 1 && animal.old <=10 && animal.isAlive ? 'col-lg-4' : 'd-none'] ">
+                            <div *ngIf=" animal.old >= 1 && animal.old <=10 && animal.isAlive">
+                                <div class="card my-4">
+                                    <img src="https://images.unsplash.com/photo-1538099130811-745e64318258?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{animal.name}}</h5>
+                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><b>ID :</b> {{animal.id}}</li>
+                                        <li class="list-group-item"> <b>Type :</b> {{animal.type}}</li>
+
+                                        <li class="list-group-item" [ngSwitch]="animal.old"><b>Old :</b> {{animal.old}}
+                                            <span *ngSwitchCase="animal.old == 1">year</span> <span
+                                                *ngSwitchDefault="animal.old>1">years</span>
+                                        </li>
+                                        <li class="list-group-item"> <b>Parck :</b> {{animal.parck}}</li>
+                                        <li class="list-group-item">
+                                            <h5>
+                                                <fa-icon *ngIf="animal.hangry" [ngStyle]="{'color' : 'green'}"
+                                                    [icon]="faBatteryFull">
+                                                </fa-icon>
+                                                <span class="group-icon" *ngIf="!animal.hangry">
+                                                    <fa-icon [ngStyle]="{'color' : 'orange'}" [icon]="faAngry">
+                                                    </fa-icon>
+                                                </span>
+                                            </h5>
+                                        </li>
+                                    </ul>
+                                    <div class="card-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Animals years between Ten and twenty
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+
+                    <div class="row  justify-content-between">
+                        <div *ngFor="let animal of animals"
+                            [ngClass]="[animal.old > 10 && animal.old <=20 && animal.isAlive ? 'col-lg-4' : 'd-none'] ">
+                            <div *ngIf=" animal.old >10 && animal.old <=20 && animal.isAlive">
+                                <div class="card my-4">
+                                    <img src="https://images.unsplash.com/photo-1538099130811-745e64318258?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{animal.name}}</h5>
+                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><b>ID :</b> {{animal.id}}</li>
+                                        <li class="list-group-item"> <b>Type :</b> {{animal.type}}</li>
+
+                                        <li class="list-group-item" [ngSwitch]="animal.old"><b>Old :</b> {{animal.old}}
+                                            <span *ngSwitchCase="animal.old == 1">year</span> <span
+                                                *ngSwitchDefault="animal.old>1">years</span>
+                                        </li>
+                                        <li class="list-group-item"> <b>Parck :</b> {{animal.parck}}</li>
+                                        <li class="list-group-item">
+                                            <h5>
+                                                <fa-icon *ngIf="animal.hangry" [ngStyle]="{'color' : 'green'}"
+                                                    [icon]="faBatteryFull">
+                                                </fa-icon>
+                                                <span class="group-icon" *ngIf="!animal.hangry">
+                                                    <fa-icon [ngStyle]="{'color' : 'orange'}" [icon]="faAngry">
+                                                    </fa-icon>
+                                                </span>
+                                            </h5>
+                                        </li>
+                                    </ul>
+                                    <div class="card-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    dead animals.
+                </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <div class="row  justify-content-between">
+                        <div *ngFor="let animal of animals" [ngClass]="[!animal.isAlive   ? 'col-lg-4' : 'd-none'] ">
+                            <div *ngIf=" !animal.isAlive">
+                                <div class="card my-4">
+                                    <img src="https://images.unsplash.com/photo-1538099130811-745e64318258?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{animal.name}}</h5>
+                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><b>ID :</b> {{animal.id}}</li>
+                                        <li class="list-group-item"> <b>Type :</b> {{animal.type}}</li>
+
+                                        <li class="list-group-item" [ngSwitch]="animal.old"><b>Old :</b> {{animal.old}}
+                                            <span *ngSwitchCase="animal.old == 1">year</span> <span
+                                                *ngSwitchDefault="animal.old>1">years</span>
+                                        </li>
+                                        <li class="list-group-item"> <b>Parck :</b> {{animal.parck}}</li>
+                                        <li class="list-group-item">
+                                            <h5>
+                                                <fa-icon [ngStyle]="{'color' : 'red'}" [icon]="faSackXmark">
+                                                </fa-icon>
+
+                                            </h5>
+                                        </li>
+                                    </ul>
+                                    <div class="card-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
